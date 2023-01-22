@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import ContaxtHook from "../hook/ContaxtHook";
 import ContactListItem from "./ContactListItem";
 
@@ -14,9 +13,12 @@ const ContactList = () => {
         data &&
         data.map((item) => {
           return (
-            <Link to={("/users/", item.id)} key={item.id}>
-              <ContactListItem item={item} setdata={setdata} data={data} />
-            </Link>
+            <ContactListItem
+              key={item.id}
+              item={item}
+              setdata={setdata}
+              data={data}
+            />
           );
         })
       )}

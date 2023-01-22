@@ -1,27 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ContaxtHook from "../hook/ContaxtHook";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Users = () => {
-  const { data, setdata } = useContext(ContaxtHook);
+  const [UserData, setUserData] = useState();
+  const { data } = useContext(ContaxtHook);
   const { id } = useParams();
-  console.log(id);
 
-  const fun = () => {
-    data.map((items) => {
-      items.filter((item) => item.id.indexOf(id) === 1);
-    });
+  useEffect(() => {
+    const FilterFun = () => {
+      const filterData = data.filter((item) => {
+        const Response = id === item.id;
+        return Response;
+      });
+      setUserData(filterData);
+    };
+    return FilterFun();
+  }, []);
 
-    return fun();
-  };
-
-  console.log(fun);
+  console.log(UserData, "useDta");
 
   return (
     <div>
-      {id}
+      {UserData &&
+        UserData.map((item) => {
+          return (
+            <div key={item?.id}>
+              <h1>{item?.name}</h1>
+              <p>{item?.phone}</p>
+            </div>
+          );
+        })}
       <Button variant="contained">
         <Link to="/users">Back</Link>
       </Button>
