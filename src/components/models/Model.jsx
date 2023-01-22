@@ -7,8 +7,8 @@ const Model = ({ items, heading, hide, DeleteBtn }) => {
   };
 
   return (
-    <div className="h-full w-full z-10 inset-0 px-4 absolute backdrop-blur-md flex items-center justify-center">
-      <div className="border bg-gray-300 p-5 rounded-md capitalize">
+    <div className="h-full w-full z-10 inset-0 px-4 fixed backdrop-blur-md flex items-center justify-center ">
+      <div className="border-none shadow-lg bg-gray-300 p-5 rounded-md capitalize">
         <h1 className="my-3 ">{heading}</h1>
         <div className="flex justify-between items-center pt-4">
           <Button
