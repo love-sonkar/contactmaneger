@@ -42,7 +42,7 @@ const AddContact = () => {
   return (
     <div className="gap-4 grid grid-cols-none sm:grid-cols-2 py-2">
       {test && (
-        <Alert className="sm:col-span-2" variant="outlined" severity="error">
+        <Alert className="sm:col-span-2" variant="filled" severity="error">
           Please fill properly
         </Alert>
       )}

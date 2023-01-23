@@ -30,19 +30,8 @@ const Users = () => {
     <div>
       {UserData &&
         UserData.map((item) => {
-          return (
-            <div key={item?.id}>
-              <h1>{item?.name}</h1>
-              <p>{item?.phone}</p>
-              <p>{item?.email}</p>
-              <p>{item?.address}</p>
-              <UserCard items={item} />
-            </div>
-          );
+          return <UserCard items={item} key={item?.id} />;
         })}
-      <Button variant="contained">
-        <Link to="/users">Back</Link>
-      </Button>
     </div>
   );
 };
